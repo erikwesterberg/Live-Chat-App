@@ -6,7 +6,7 @@ import Dashboard from './Dashboard';
 function App() {
   return (
     <div className="App">
-        <h1>yo</h1>
+        <Dashboard />
     </div>
   );
 }
