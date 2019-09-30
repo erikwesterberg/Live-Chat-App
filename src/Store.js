@@ -44,7 +44,11 @@ export default function Store(props) {
   if (!socket) {
     socket = io(":3001");
   }
+  // Create a user
+   
+  const user = "Erka" + Math.random(100).toFixed(2)
+
   const [allChats] = React.useReducer(reducer, initState);
 
-  return <CTX.Provider value={allChats, sendChatAction}>{props.children}</CTX.Provider>;
+  return <CTX.Provider value={{allChats, sendChatAction, user}}>{props.children}</CTX.Provider>;
 }
