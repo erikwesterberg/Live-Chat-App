@@ -7,6 +7,7 @@ import Chip from '@material-ui/core/Chip';
 import ListItemText from "@material-ui/core/ListItemText";
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
+import { CTX } from './Store';
 
 
 const useStyles = makeStyles(theme => ({
@@ -39,6 +40,9 @@ const useStyles = makeStyles(theme => ({
 const Dashboard = () => {
   const classes = useStyles;
   const [textValue, ChangeTextValue]  = useState("")
+
+  const [allChats] = React.useContext(CTX)
+  console.log(allChats)
   return (
     <div>
       <Paper className={classes.root}>
