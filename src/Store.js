@@ -3,15 +3,16 @@ import React from "react";
 const CTX = React.createContext();
 
 const reducer = (state, action) => {
+  const { from, msg, topic } = action.payload
     switch(action.type) {
        case "RECIVE_MESSAGE":
          return {
             ...state, 
-            [action.payload.topic] : [
-              ...state[action.payload.topic],
+            [topic] : [
+              ...state[topic],
                 {
-                  from: action.payload.from,
-                  msg: action.payload.msg
+                  from,
+                  msg
                 }
             ]
          }
