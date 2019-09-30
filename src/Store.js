@@ -48,7 +48,7 @@ export default function Store(props) {
   if (!socket) {
     socket = io(":3001");
     socket.on("chat message", function(msg) {
-      dispatch({type: 'RECEIVE_MESSAGE', payload: msg})
+      dispatch({type: 'RECIVE_MESSAGE', payload: msg})
     });
   }
   // Create a user
