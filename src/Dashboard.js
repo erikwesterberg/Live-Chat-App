@@ -41,7 +41,7 @@ const Dashboard = () => {
   const classes = useStyles;
 
    // CTX Store
-   const [allChats] = React.useContext(CTX)
+   const { allChats, sendChatAction } = React.useContext(CTX)
    const topics = Object.keys(allChats)
   
   //Local state
@@ -63,7 +63,11 @@ const Dashboard = () => {
             
             {
               topics.map(topic => (
-                <ListItem onClick={e => changeActiveTopic(e.target.innerText)} key={topic} button>  
+                <ListItem onClick={e => {
+                  changeActiveTopic(e.target.innerText);
+                  ChangeTextValue("")
+                }}
+                 key={topic} button>  
                 <ListItemText primary={topic} />
               </ListItem>
               ))
@@ -90,7 +94,11 @@ const Dashboard = () => {
         onChange={(e) => ChangeTextValue(e.target.value)}
      
       />
-        <Button variant="contained" color="primary" className={classes.button}>
+        <Button variant="contained"
+        color="primary" 
+        className={classes.button}
+        onClick={() => sendChatAction(textValue)}
+        >
         Send
       </Button>
         </div>
