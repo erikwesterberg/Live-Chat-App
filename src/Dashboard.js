@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Paper from "@material-ui/core/Paper";
 import Typography from "@material-ui/core/Typography";
@@ -38,6 +38,7 @@ const useStyles = makeStyles(theme => ({
 
 const Dashboard = () => {
   const classes = useStyles;
+  const [textValue, ChangeTextValue]  = useState("")
   return (
     <div>
       <Paper className={classes.root}>
@@ -76,8 +77,8 @@ const Dashboard = () => {
         <TextField
         label="Send a chat"
         className={classes.chatBox}
-        // value={values.name}
-        // onChange={handleChange('name')}
+        value={textValue}
+        onChange={(e) => ChangeTextValue(e.target.value)}
      
       />
         <Button variant="contained" color="primary" className={classes.button}>
