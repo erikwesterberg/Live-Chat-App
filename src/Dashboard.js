@@ -39,14 +39,15 @@ const useStyles = makeStyles(theme => ({
 
 const Dashboard = () => {
   const classes = useStyles;
+
+   // CTX Store
+   const [allChats] = React.useContext(CTX)
+   const topics = Object.keys(allChats)
+  
+  //Local state
+  const [activeTopic, changeActiveTopic] = useState(topics[0])
   const [textValue, ChangeTextValue]  = useState("")
-
-  const [allChats] = React.useContext(CTX)
-  console.log(allChats)
-
-  const topic = Object.keys(allChats)
-
-
+ 
   return (
     <div>
       <Paper className={classes.root}>
@@ -54,15 +55,15 @@ const Dashboard = () => {
           Chat app
         </Typography>
         <Typography variant="h5" component="h5">
-          Topic placeholder
+          {activeTopic}
         </Typography>
         <div className={classes.flex}>
           <div className={classes.topicsWindow}>
             <list>
             
             {
-              topic.map(topic => (
-                <ListItem key={topic} button>  
+              topics.map(topic => (
+                <ListItem onClick={e => changeActiveTopic(e.target.innerText)} key={topic} button>  
                 <ListItemText primary={topic} />
               </ListItem>
               ))
