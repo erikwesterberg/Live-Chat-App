@@ -43,6 +43,10 @@ const Dashboard = () => {
 
   const [allChats] = React.useContext(CTX)
   console.log(allChats)
+
+  const topic = Object.keys(allChats)
+
+
   return (
     <div>
       <Paper className={classes.root}>
@@ -57,7 +61,7 @@ const Dashboard = () => {
             <list>
             
             {
-              ['topic'].map(topic => (
+              topic.map(topic => (
                 <ListItem key={topic} button>  
                 <ListItemText primary={topic} />
               </ListItem>
@@ -71,7 +75,7 @@ const Dashboard = () => {
               [{from: "user", msg: "hello"}].map((chat, i) => (
                 <div className={classes.flex} key={i}>
                   <Chip label={chat.from} className={classes.chip} />
-                  <Typography variant="p">{chat.msg}</Typography>
+                  <Typography variant="body1" gutterBottom>{chat.msg}</Typography>
                 </div>
               ))
             }
