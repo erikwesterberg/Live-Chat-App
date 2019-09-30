@@ -5,6 +5,9 @@ import Typography from "@material-ui/core/Typography";
 import ListItem from "@material-ui/core/ListItem";
 import Chip from '@material-ui/core/Chip';
 import ListItemText from "@material-ui/core/ListItemText";
+import Button from '@material-ui/core/Button';
+import TextField from '@material-ui/core/TextField';
+
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -69,7 +72,18 @@ const Dashboard = () => {
             }
           </div>
         </div>
-        <div className={classes.flex}></div>
+        <div className={classes.flex}>
+        <TextField
+        label="Send a chat"
+        className={classes.chatBox}
+        // value={values.name}
+        // onChange={handleChange('name')}
+     
+      />
+        <Button variant="contained" color="primary" className={classes.button}>
+        Send
+      </Button>
+        </div>
       </Paper>
     </div>
   );
